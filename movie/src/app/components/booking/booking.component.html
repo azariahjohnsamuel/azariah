@@ -1,0 +1,53 @@
+<div class="dialog">
+    <div *ngIf="!showSelected" class="banner"  style="background-image: linear-gradient(0deg, #1A1A1A 24.97%, #1A1A1A 38.3%, rgba(26, 26, 26, 0.0409746) 97.47%, #1A1A1A 100%),url({{selectedMovie.thumbnail_url}});">
+        <div class="thumb mx-auto">
+            <img [src]="selectedMovie.thumbnail_url">
+        </div>
+        <div class=" title-card p-5 mx-auto">
+            <H1 class="center-align">{{selectedMovie.movie_name}}</H1>
+            <div class="center-align">{{selectedMovie.tags}}</div>
+            <!-- <button class="bookbtn" (click)="book()" mat-button>Book ticket</button> -->
+            <div class="center-align card-info p-2">
+                <mat-icon>star</mat-icon>
+                {{selectedMovie.imdb_rating}}/10
+                <img class="" src="../../../assets/imdb.svg">
+            </div>
+            <div>
+                <div class="center-align language">{{selectedMovie.language}}</div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!showSelected">
+    <div *ngFor="let place of theaters; index as i" class="d-flex theater my-3">
+        <mat-divider></mat-divider>
+        <img class="center-align" [src]="place.thumbnail_url">
+        <div class="center-align">
+            <h1 class="center-align">{{place.theatre_name}}</h1>
+            <button (click)="showSelect(selectedMovie.movie_name,place.theatre_name,show)" mat-button *ngFor="let show of shows[place.theatre_name]">{{theaters[i][show]}}</button>
+        </div>
+        <mat-divider></mat-divider>
+
+
+    </div>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close [mat-dialog-close]="selectedTheater">Done</button>
+    </mat-dialog-actions>
+    </div>
+    <div *ngIf="showSelected" class="seat_select">
+        <H1>Select You Seat</H1>
+
+    <table>
+        <tbody>
+            <tr *ngFor="let row of rows, index as r">
+                <td *ngFor="let colum of colums, index as c">
+                    <button mat-button class="seat">
+                        <mat-icon>event_seat</mat-icon>
+                        <p>{{((r*10)+c+1)}}</p>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        
+    </div>
+</div>

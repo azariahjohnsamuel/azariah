@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Movies</h1>
+    <div class="movies d-flex mt-5">
+        <mat-card (click)="movieselecte(movie)" class="m-3" *ngFor="let movie of movies">
+            <mat-card-title></mat-card-title>
+            <mat-card-content><img [src]="movie.thumbnail_url">
+                <div class="card-info p-2">
+                    <mat-icon>star</mat-icon>
+                    {{movie.imdb_rating}}/10
+                    <img class="" src="../../../assets/imdb.svg">
+                </div>
+            </mat-card-content>
+            <mat-card-footer>
+                <div class="d-flex">
+                    <div class="m-title">{{movie.movie_name}}</div>
+                    <div class="language">{{movie.language}}</div>
+                </div>
+                <div>{{movie.tags}}</div>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

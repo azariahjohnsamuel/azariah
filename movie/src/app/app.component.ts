@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpserviceService } from './services/httpservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie';
+  constructor(private httpservice: HttpserviceService) {
+  }
+  ngOnInit(){
+    this.httpservice.getall()
+  }
 }

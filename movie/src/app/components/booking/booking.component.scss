@@ -1,0 +1,61 @@
+.banner{
+    background-size: 48vw;
+    background-repeat: round;
+}
+.bookbtn{
+    background: #e60b0b;
+    color: white;
+}
+.title-card{
+    color: white;
+    width: fit-content;
+}
+.thumb{
+ width: fit-content;   
+}
+.dialog{
+    width: 68vw;
+    height: 90vh;
+}
+.card-info {
+    width: -webkit-fill-available;
+    color: white;
+    align-items: center;
+    display: flex;
+
+    mat-icon {
+        color: #db334b;
+    }
+
+    img {
+        height: 15px;
+        margin-left: auto;
+    }
+}
+.seat{
+    p{
+    margin: 0 !important;
+    padding: 0 !important;
+    }
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.language {
+    background-color: #db334b;
+    padding: 5px;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+.theater{
+    img{
+        height: 100px;
+    }
+}
+.seat_select{
+    width: fit-content;
+    margin: auto;
+}
