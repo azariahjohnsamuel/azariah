@@ -11,6 +11,6 @@ export class AppComponent {
   constructor(private httpservice: HttpserviceService) {
   }
   ngOnInit(){
-    this.httpservice.getall()
+    
   }
 }

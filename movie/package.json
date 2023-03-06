@@ -23,6 +23,8 @@
     "@types/lodash": "^4.14.191",
     "bootstrap": "^5.2.3",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "observable-to-promise": "^2.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,4 +1,4 @@
-<div class="dialog">
+<div *ngIf="!booked" class="dialog">
     <div *ngIf="!showSelected" class="banner"  style="background-image: linear-gradient(0deg, #1A1A1A 24.97%, #1A1A1A 38.3%, rgba(26, 26, 26, 0.0409746) 97.47%, #1A1A1A 100%),url({{selectedMovie.thumbnail_url}});">
         <div class="thumb mx-auto">
             <img [src]="selectedMovie.thumbnail_url">
@@ -18,36 +18,64 @@
         </div>
     </div>
     <div *ngIf="!showSelected">
-    <div *ngFor="let place of theaters; index as i" class="d-flex theater my-3">
+        <h1 class="center-align">Available Theaters and Shows</h1>
+    <div *ngFor="let place of availabletheater; index as i" class="d-flex theater my-3">
         <mat-divider></mat-divider>
-        <img class="center-align" [src]="place.thumbnail_url">
-        <div class="center-align">
-            <h1 class="center-align">{{place.theatre_name}}</h1>
-            <button (click)="showSelect(selectedMovie.movie_name,place.theatre_name,show)" mat-button *ngFor="let show of shows[place.theatre_name]">{{theaters[i][show]}}</button>
+        <!-- <img class="center-align" [src]="place.thumbnail_url"> -->
+        <div class="mx-auto mb-5">
+            <div >
+                <img class="center-align" [src]="place.thumbnail_url">
+                <p class="card-info1">{{place.theatre_name}}</p>
+            </div>
+            <div class="me-auto">
+                <button mat-flat-button color="warn" (click)="showSelect(selectedMovie.movie_name,place.theatre_name,theaters[i][show])" *ngFor="let show of shows[place.theatre_name]">{{theaters[i][show]}}</button>
+            </div>
         </div>
-        <mat-divider></mat-divider>
+        <mat-divider></mat-divider> 
 
 
     </div>
-    <mat-dialog-actions>
+    <!-- <mat-dialog-actions>
         <button mat-button mat-dialog-close [mat-dialog-close]="selectedTheater">Done</button>
-    </mat-dialog-actions>
+    </mat-dialog-actions> -->
     </div>
-    <div *ngIf="showSelected" class="seat_select">
+    <div *ngIf="showSelected" class="seat_select d-grid center-align">
         <H1>Select You Seat</H1>
-
     <table>
         <tbody>
             <tr *ngFor="let row of rows, index as r">
                 <td *ngFor="let colum of colums, index as c">
-                    <button mat-button class="seat">
-                        <mat-icon>event_seat</mat-icon>
+                    <button mat-button class="seat" (click)="selectseat((r*10)+c)" [ngClass]="this.seats[(r*10)+c].selected? 'selected' : ''">
+                        <!-- <mat-icon>event_seat</mat-icon> -->
                         <p>{{((r*10)+c+1)}}</p>
                     </button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <button class="center-align" mat-raised-button (click)="bookTicket()" color="primary">Book Ticket</button>
         
     </div>
+</div>
+
+<div *ngIf="booked && !error" class="dialog">
+    <mat-card class="center-align">
+        <mat-card-title class="center-align">The Booking is completed successfully</mat-card-title>
+        <mat-card-content class="mt-4 center-align">
+            <p>Movie Nme :{{selection.movie}}</p>
+            <P>Show Time :{{selection.show}}</P>
+            <P>Place :{{selection.place}}</P>
+            <P>Seats Booked:{{selection.seats}}</P>
+            <button mat-button mat-dialog-close [mat-dialog-close]="selectedTheater" (click)="back()">Back</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div *ngIf="error" class="dialog">
+    <mat-card class="center-align">
+        <mat-card-title class="center-align">The Booking Has Failed</mat-card-title>
+        <mat-card-content class="mt-4 center-align">
+            <p>Please select some other seats</p>
+            <button mat-button mat-dialog-close [mat-dialog-close]="selectedTheater" (click)="back()">Back</button>
+        </mat-card-content>
+    </mat-card>
 </div>

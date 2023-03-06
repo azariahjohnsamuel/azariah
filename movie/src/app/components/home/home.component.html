@@ -7,15 +7,36 @@
                 <div class="card-info p-2">
                     <mat-icon>star</mat-icon>
                     {{movie.imdb_rating}}/10
-                    <img class="" src="../../../assets/imdb.svg">
+                    <img class="imdb_img" src="../../../assets/imdb.svg">
                 </div>
             </mat-card-content>
             <mat-card-footer>
                 <div class="d-flex">
                     <div class="m-title">{{movie.movie_name}}</div>
-                    <div class="language">{{movie.language}}</div>
+                    <div class="language">{{movie.language.substring(0,3)}}</div>
                 </div>
                 <div>{{movie.tags}}</div>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <h1>Theaters</h1>
+    <div class="overlay"> Yet to work on</div>
+    <div class=" movies d-flex mt-5">
+        <mat-card (click)="theaterselecte(movie)" class="row m-3" *ngFor="let movie of theaters">
+            <mat-card-title></mat-card-title>
+            <mat-card-content><img [src]="movie.thumbnail_url">
+                <div class="card-info p-2">
+                    <mat-icon>star</mat-icon>
+                     {{movie.customer_rating}}/5 Rating
+                    <!-- <img class="" src="../../../assets/imdb.svg"> -->
+                </div>
+            </mat-card-content>
+            <mat-card-footer>
+                <div class="d-flex">
+                    <div class="m-title">{{movie.theatre_name}}</div>
+                    <!-- <div class="language">{{movie.language}}</div> -->
+                </div>
+                <div>{{movie.website}}</div>
             </mat-card-footer>
         </mat-card>
     </div>

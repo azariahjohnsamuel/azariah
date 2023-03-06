@@ -40,6 +40,11 @@
     margin: 0 !important;
     padding: 0 !important;
 }
+.selected{
+    color: green;
+    border: solid;
+    background-color: #0080005c;
+}
 .language {
     background-color: #db334b;
     padding: 5px;
@@ -52,10 +57,21 @@
 }
 .theater{
     img{
-        height: 100px;
+        height: 200px;
+        width: 177px;
+        object-fit: cover;
     }
+
 }
 .seat_select{
     width: fit-content;
     margin: auto;
+}
+.card-info1 {
+       bottom: 104px;
+       background-color: rgba(0, 0, 0, 0.76);
+       color: white;
+       align-items: center;
+       display: flex;
+       padding: 8px;
 }

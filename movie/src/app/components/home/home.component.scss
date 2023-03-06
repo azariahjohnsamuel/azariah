@@ -4,8 +4,26 @@ mat-card {
     margin-bottom: 0 !important;
     cursor: pointer;
     box-shadow: none !important;
+    img{
+        height: 250px;
+        width: 180px;
+        object-fit: cover;
+    }
 }
-
+.imdb_img{
+    object-fit: unset !important;
+}
+.overlay{
+    position: absolute;
+    height: 400px;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.5803921569);
+    z-index: 3;
+    color: white;
+    font-size: xxx-large;
+    align-items: center;
+    display: flex;
+}
 .mat-card-footer {
     display: inline;
 }
@@ -36,9 +54,9 @@ mat-card {
 
 .card-info {
     position: absolute;
-    bottom: 60px;
-    background-color: rgb(0 0 0 / 76%);
-    width: -webkit-fill-available;
+    bottom: 104px;
+    background-color: rgba(0, 0, 0, 0.76);
+    width: 180px;
     color: white;
     align-items: center;
     display: flex;
